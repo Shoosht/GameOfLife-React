@@ -1,4 +1,4 @@
-.navbar {
+.navbar-Show {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -11,31 +11,52 @@
     border-top: 1px solid grey;
     
 }
+
+
+
+.navbar-Hide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: fade-out 500ms forwards;
+    
+}
+
+
   
-.left {
+.left-Show {
     display: flex;
     height: 100%;
     width: 33%;
     align-items: center;
     justify-content: center;
+}
+
+.left-Hide {
+    display: none;
 }
   
 .middle {
+    position: relative;
     display: flex;
     height: 100%;
     width: 33%;
-    align-items: center;
+    
     justify-content: center;
-   
 }
   
-.right{
+.right-Show {
     display: flex;
     height: 100%;
     width: 33%;
     align-items: center;
     justify-content: center;
   
+}
+
+.right-Hide {
+    display: none;
 }
 
 .button {
@@ -58,13 +79,116 @@
 }
 
 .button:hover {
-    background-color: #3e8e41;
+    background-color: #3c8b3f;
     transition: 0.5s ease-in-out; 
+    cursor: pointer;
+    border: 1px solid #B6D4B7;
+    color: #B6D4B7;
 }
 
 .button:active {
-    background-color: #3e8e41;
+    background-color: #3c8b3f;
     box-shadow: 0 2px #302f2f;
     transform: translateY(1px);
+    border: 1px solid #B6D4B7;
+    color: #B6D4B7;
 }
 
+.showhide-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    top: 90%;
+    left: 90%;
+
+}
+
+.Show{
+    position: absolute;
+    top: -20px;
+
+    border: 1px solid grey;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    background-color: rgba(31, 31, 31, 0.7);
+    
+}
+
+.Show:hover{
+    cursor: pointer;
+    background-color: rgba(17, 17, 17, 0.7);
+    transition: 0.5s ease-in-out; 
+    border: 1px solid lightgrey;
+}
+
+.Hide{
+    position: fixed;
+    bottom: 10px;
+
+    border: 1px solid grey;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    
+
+    background-color: rgba(31, 31, 31, 0.7);  
+}
+
+.Hide:hover{
+    cursor: pointer;
+    background-color: rgba(17, 17, 17, 0.7);
+    transition: 0.5s ease-in-out; 
+    border: 1px solid lightgrey;
+}
+
+
+.Hide-arrow{
+    width: 0; 
+    height: 0; 
+    
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  
+    border-bottom: 8px solid white;
+}
+
+.Show-arrow{
+    width: 0; 
+    height: 0; 
+    
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  
+    border-top: 8px solid white;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+    0% {
+        opacity: 1;
+    }
+}
