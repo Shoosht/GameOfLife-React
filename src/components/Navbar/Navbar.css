@@ -9,21 +9,26 @@
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid grey;
+
+    animation: fade-in 500ms forwards;
     
 }
 
-
-
 .navbar-Hide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 10%;
+    width: 100%;
+    background-color: rgba(64, 64, 64, 0.4);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #1E1E1E;
 
     animation: fade-out 500ms forwards;
     
 }
-
-
   
 .left-Show {
     display: flex;
@@ -64,11 +69,11 @@
     align-items: center;
     justify-content: center;
   
-    font-family: "Lucida Console";
+    font-family: "Google Sans",Arial,sans-serif;
     font-weight: bold;
   
     background-color: #4CAF50;
-    width: 30%; 
+    width: 25%; 
     height: 50%;
     font-size: 3vh;
     
@@ -106,7 +111,6 @@
 
 .Show{
     position: absolute;
-    top: -20px;
 
     border: 1px solid grey;
 
@@ -120,6 +124,7 @@
 
     background-color: rgba(31, 31, 31, 0.7);
     
+    animation: move-up 500ms forwards;
 }
 
 .Show:hover{
@@ -131,8 +136,7 @@
 
 .Hide{
     position: fixed;
-    bottom: 10px;
-
+    
     border: 1px solid grey;
 
     display: flex;
@@ -145,6 +149,8 @@
     
 
     background-color: rgba(31, 31, 31, 0.7);  
+
+    animation: move-down 500ms forwards;
 }
 
 .Hide:hover{
@@ -190,5 +196,23 @@
     }
     0% {
         opacity: 1;
+    }
+}
+
+@keyframes move-up {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 60px;
+    }
+}
+
+@keyframes move-down {
+    0% {
+        bottom: 60px;
+    }
+    100% {
+        bottom: 10px;
     }
 }

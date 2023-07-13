@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import "./Cells.css";
 
+const COLUMNS = 152;
+const ROWS = 100;
+
 class Cells extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cellData: [],
-      COLUMNS: 152,
-      ROWS: 100,
     };
     this.cellDataTemp = [];
   }
@@ -40,9 +41,6 @@ class Cells extends Component {
   }
 
   emptyGridSetup(){
-    const COLUMNS = this.state.COLUMNS;
-    const ROWS = this.state.ROWS;
-
     let initialArray = [];
     
     for (let i = 0; i < ROWS; i++) {
@@ -96,11 +94,11 @@ class Cells extends Component {
     var aliveCellCounter = 0;
 
     for(let c = i - 1; c <= i + 1; c++){
-      if(c<0 || c>=this.state.ROWS){
+      if(c<0 || c>=ROWS){
         continue;
       }
       for(let k = j - 1; k <= j + 1; k++){
-        if(k<0 || k>=this.state.COLUMNS){
+        if(k<0 || k>=COLUMNS){
           continue;
         }
         if(c===i && k===j){
@@ -115,8 +113,6 @@ class Cells extends Component {
   }
   
   gameLogic = () =>{
-    const COLUMNS = this.state.COLUMNS;
-    const ROWS = this.state.ROWS;
     for (let i = 0; i < ROWS; i++) {
       for (let j = 0; j < COLUMNS; j++) {
         var aliveCellCounter = 0;
@@ -157,9 +153,6 @@ class Cells extends Component {
   }
 
   futureStatusToLife(){
-    const COLUMNS = this.state.COLUMNS;
-    const ROWS = this.state.ROWS;
-    
     for (let i = 0; i < ROWS; i++) {
       for (let j = 0; j < COLUMNS; j++) {
         if(this.cellDataTemp[i][j].futureStatus !== this.cellDataTemp[i][j].life){
@@ -179,8 +172,6 @@ class Cells extends Component {
   }
   
   render() {
-    const COLUMNS = this.state.COLUMNS;
-    const ROWS = this.state.ROWS;
 
     const styles = {
       display: 'grid',
@@ -198,8 +189,6 @@ class Cells extends Component {
                   className={cell.life}
                   key={`${rowIndex}-${columnIndex}`}
                   onClick={() => this.changeCellLife(rowIndex, columnIndex)}
-                  x={rowIndex}
-                  y={columnIndex}
                   life={cell.life}
                 ></div>
               ))
